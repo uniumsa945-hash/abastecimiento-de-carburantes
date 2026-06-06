@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador de Abastecimiento de Carburantes</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header>
+        <h1>Simulador de Abastecimiento de Carburantes</h1>
+        <p>Gestión de reservas y proyección de autonomía en contextos de crisis</p>
+    </header>
+
+    <main class="container">
+        
+        <section id="inicio" class="card">
+            <h2>Inicio y Contexto</h2>
+            <p><strong>Objetivo del simulador:</strong> Proyectar de manera exacta cuántos días tardará una estación de servicio en alcanzar un nivel crítico de combustible, considerando las reservas actuales, el consumo de la población y el reabastecimiento programado.</p>
+            <p>En situaciones de bloqueos, crisis de transporte o alta demanda, la administración de carburantes se vuelve vital. Este simulador ayuda a prever el desabastecimiento antes de que ocurra.</p>
+        </section>
+
+        <section id="casos-estudio" class="card">
+            <h2>Casos de Estudio (Datos de Prueba)</h2>
+            <p>Utiliza los siguientes datos de control para verificar que el sistema realiza los cálculos correctamente:</p>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Dato de Entrada</th>
+                            <th>Valor de Prueba</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Reserva Inicial</td>
+                            <td>10,000 Litros</td>
+                        </tr>
+                        <tr>
+                            <td>Consumo Diario</td>
+                            <td>1,200 Litros</td>
+                        </tr>
+                        <tr>
+                            <td>Reabastecimiento Diario</td>
+                            <td>300 Litros</td>
+                        </tr>
+                        <tr>
+                            <td>Nivel Crítico de Seguridad</td>
+                            <td>2,000 Litros</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section id="simulador" class="card">
+            <h2>Panel del Simulador</h2>
+            <form id="form-carburante">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="reserva-inicial">Reserva Inicial (Litros):</label>
+                        <input type="number" id="reserva-inicial" min="0" placeholder="Ej. 10000" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="consumo-diario">Consumo Diario (Litros):</label>
+                        <input type="number" id="consumo-diario" min="0" placeholder="Ej. 1200" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="reabastecimiento">Reabastecimiento Diario (Litros):</label>
+                        <input type="number" id="reabastecimiento" min="0" placeholder="Ej. 300" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="nivel-critico">Nivel Crítico (Litros):</label>
+                        <input type="number" id="nivel-critico" min="0" placeholder="Ej. 2000" required>
+                    </div>
+                </div>
+
+                <div class="button-group">
+                    <button type="button" id="btn-calcular" class="btn btn-primary">Calcular Autonomía</button>
+                    <button type="button" id="btn-limpiar" class="btn btn-secondary">Limpiar Campos</button>
+                </div>
+            </form>
+        </section>
+
+        <section id="resultados" class="card hidden">
+            <h2>Resultados del Diagnóstico</h2>
+            <div id="alerta-status" class="status-alert"></div>
+            
+            <div class="resultados-grid">
+                <p><strong>Consumo Neto Diario:</strong> <span id="res-consumo-neto">-</span></p>
+                <p><strong>Volumen a Disminuir:</strong> <span id="res-volumen-util">-</span></p>
+                <p><strong>Días Restantes hasta Alerta:</strong> <span id="res-dias-restantes">-</span></p>
+            </div>
+            
+            <div class="total-box">
+                <h3>Estado de la Reserva: <span id="res-estado-final">-</span></h3>
+            </div>
+        </section>
+
+        <section id="conclusiones" class="card">
+            <h2>Conclusiones</h2>
+            <p>La simulación demuestra que el reabastecimiento parcial ayuda a ralentizar la escasez, pero si el consumo supera el ingreso de combustible, el desabastecimiento es inevitable. Este modelo matemático permite a los encargados de logística gestionar racionamientos estratégicos tempranos.</p>
+        </section>
+
+    </main>
+
+    <footer>
+        <p><strong>Créditos:</strong> Desarrollado por [Nombre del Estudiante o Grupo] &copy; 2026</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
